@@ -227,3 +227,9 @@ inventory-staging.ini
 # Host/group variable files with secrets
 host_vars/
 group_vars/*/vault.yml
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
