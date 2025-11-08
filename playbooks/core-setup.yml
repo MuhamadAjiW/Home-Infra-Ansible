@@ -1,0 +1,6 @@
+---
+# Main deployment playbook - runs core setup tasks
+- name: Setup Docker environment
+  import_playbook: infrastructure/docker-setup.yml
+- name: Configure VPN auto-start
+  import_playbook: infrastructure/vpn-setup.yml
