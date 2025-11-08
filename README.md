@@ -69,11 +69,11 @@ ansible all -m ping
 ansible-playbook playbooks/vpn-setup.yml
 ansible-playbook playbooks/docker-setup.yml
 
-# Run everything
-ansible-playbook playbooks/main.yml
+# Main setup
+ansible-playbook playbooks/core-setup.yml
 
 # Dry run (check what would change)
-ansible-playbook playbooks/main.yml --check
+ansible-playbook playbooks/core-setup.yml --check
 ```
 
 ## Services
