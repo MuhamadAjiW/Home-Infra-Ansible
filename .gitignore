@@ -214,3 +214,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ansible
+*.retry
+.vault_pass
+
+# Inventory files with sensitive IPs
+inventory.ini
+inventory-prod.ini
+inventory-staging.ini
+
+# Host/group variable files with secrets
+host_vars/
+group_vars/*/vault.yml

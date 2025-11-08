@@ -2,11 +2,15 @@
 
 This repository contains Ansible playbooks and configurations for managing my home infrastructure. It includes setup and maintenance scripts for various services running on my home server.
 
-## Getting Started
+## Preparing Resources
+
+Setup `inventory.ini` file with your target hosts. Copy the provided `inventory-template.ini` to `inventory.ini` and modify it as needed. Additional resource files required for the playbooks should be placed in the `resources/` directory. Refer to `resources/resource-list.md` for details on necessary files.
+
+## Installation
 
 You can install ansible directly or use a virtual environment. Both will work just fine.
 
-### Using installation
+### Using system package manager
 
 Install ansible using your system's package manager:
 
@@ -34,10 +38,6 @@ Do not forget to update the virtual environment dependencies when additional pac
 ```bash
 uv pip freeze > requirements.txt
 ```
-
-## Preparing Additional Resources
-
-Additional resource files required for the playbooks should be placed in the `resources/` directory. Refer to `resources/resource-list.md` for details on necessary files.
 
 ## Playbooks
 
