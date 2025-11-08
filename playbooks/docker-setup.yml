@@ -1,12 +1,12 @@
 ---
 - name: Install Docker and dependencies
-  hosts: primary_service_nodes
-  become: yes
+  hosts: candidate_servers
+  become: true
   
   tasks:
     - name: Update package cache
       apt:
-        update_cache: yes
+        update_cache: true
     
     - name: Install required packages
       apt:
@@ -36,16 +36,16 @@
           - containerd.io
           - docker-compose-plugin
         state: present
-        update_cache: yes
+        update_cache: true
     
     - name: Add user to docker group
       user:
         name: default
         groups: docker
-        append: yes
+        append: true
     
     - name: Start and enable Docker service
       systemd:
         name: docker
         state: started
-        enabled: yes
+        enabled: true
