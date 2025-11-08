@@ -1,33 +1,33 @@
 ---
+# Ansible Playbook for VPN installation
 - name: Setup VPN auto-start on boot
   hosts: candidate_servers
   become: true
-  
+
   tasks:
     - name: Install OpenVPN client
-      apt:
+      ansible.builtin.apt:
         name: openvpn
         state: present
         update_cache: true
-    
+
     - name: Create OpenVPN client config directory
-      file:
+      ansible.builtin.file:
         path: /etc/openvpn/client
         state: directory
-        mode: '0755'
-    
-    - name: Copy VPN configuration file
-      copy:
-        src: /home/default/vpn.conf
-        dest: /etc/openvpn/client/vpn.conf
-        remote_src: true
-        mode: '0600'
+        mode: "0755"
+
+    - name: Copy VPN configuration file from control node
+      ansible.builtin.copy:
+        src: ./resources/personal-vpn.ovpn
+        dest: /etc/openvpn/client/personal-vpn.ovpn
+        mode: "0600"
         owner: root
         group: root
-    
+
     - name: Enable OpenVPN client service for auto-start
-      systemd:
-        name: openvpn-client@vpn
+      ansible.builtin.systemd:
+        name: openvpn-client@personal-vpn
         enabled: true
         state: started
         daemon_reload: true

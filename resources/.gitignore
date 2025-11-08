@@ -1,0 +1,6 @@
+# Ignored are files that are generated or contain sensitive information
+*.pem
+*.key
+*.crt
+*.csr
+*.ovpn

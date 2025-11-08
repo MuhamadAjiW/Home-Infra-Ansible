@@ -1,15 +1,16 @@
 ---
+# Ansible Playbook for docker installation
 - name: Install Docker and dependencies
   hosts: candidate_servers
   become: true
-  
+
   tasks:
     - name: Update package cache
-      apt:
+      ansible.builtin.apt:
         update_cache: true
-    
+
     - name: Install required packages
-      apt:
+      ansible.builtin.apt:
         name:
           - apt-transport-https
           - ca-certificates
@@ -17,19 +18,19 @@
           - gnupg
           - lsb-release
         state: present
-    
+
     - name: Add Docker GPG key
-      apt_key:
+      ansible.builtin.apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
-    
+
     - name: Add Docker repository
-      apt_repository:
+      ansible.builtin.apt_repository:
         repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
         state: present
-    
+
     - name: Install Docker
-      apt:
+      ansible.builtin.apt:
         name:
           - docker-ce
           - docker-ce-cli
@@ -37,15 +38,15 @@
           - docker-compose-plugin
         state: present
         update_cache: true
-    
+
     - name: Add user to docker group
-      user:
+      ansible.builtin.user:
         name: default
         groups: docker
         append: true
-    
+
     - name: Start and enable Docker service
-      systemd:
+      ansible.builtin.systemd:
         name: docker
         state: started
         enabled: true
