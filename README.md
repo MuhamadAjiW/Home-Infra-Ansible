@@ -4,7 +4,15 @@ This repository contains Ansible playbooks and configurations for managing my ho
 
 ## Preparing Resources
 
-Setup `inventory.ini` file with your target hosts. Copy the provided `inventory-template.ini` to `inventory.ini` and modify it as needed. Additional resource files required for the playbooks should be placed in the `resources/` directory. Refer to `resources/resource-list.md` for details on necessary files.
+Setup configuration files:
+
+1. Copy `ansible-template.cfg` to `ansible.cfg` and update with your settings:
+   - `remote_user`: Your SSH username
+   - `private_key_file`: Path to your SSH private key
+
+2. Copy `inventory-template.ini` to `inventory.ini` and modify with your target hosts
+
+3. Additional resource files required for the playbooks should be placed in the `resources/` directory. Refer to `resources/resource-list.md` for details on necessary files.
 
 ## Installation
 
