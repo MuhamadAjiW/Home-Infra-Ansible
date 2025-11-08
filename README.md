@@ -12,7 +12,7 @@ Setup configuration files:
 
 2. Copy `inventory-template.ini` to `inventory.ini` and modify with your target hosts
 
-3. Additional resource files required for the playbooks should be placed in the `resources/` directory. Refer to `resources/resource-list.md` for details on necessary files.
+3. Additional resource files required for the playbooks should be placed in the `resources/` directory. Refer to `resources/README.md` for details on necessary files.
 
 ## Installation
 
