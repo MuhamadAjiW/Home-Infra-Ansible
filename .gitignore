@@ -219,6 +219,7 @@ __marimo__/
 *.retry
 .vault_pass
 ansible.cfg
+.ansible/
 
 # Inventory files with sensitive IPs
 inventory.ini
