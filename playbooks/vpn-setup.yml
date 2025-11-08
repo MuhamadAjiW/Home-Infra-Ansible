@@ -1,0 +1,33 @@
+---
+- name: Setup VPN auto-start on boot
+  hosts: primary_service_nodes
+  become: yes
+  
+  tasks:
+    - name: Install OpenVPN client
+      apt:
+        name: openvpn
+        state: present
+        update_cache: yes
+    
+    - name: Create OpenVPN client config directory
+      file:
+        path: /etc/openvpn/client
+        state: directory
+        mode: '0755'
+    
+    - name: Copy VPN configuration file
+      copy:
+        src: /home/default/vpn.conf
+        dest: /etc/openvpn/client/vpn.conf
+        remote_src: yes
+        mode: '0600'
+        owner: root
+        group: root
+    
+    - name: Enable OpenVPN client service for auto-start
+      systemd:
+        name: openvpn-client@vpn
+        enabled: yes
+        state: started
+        daemon_reload: yes

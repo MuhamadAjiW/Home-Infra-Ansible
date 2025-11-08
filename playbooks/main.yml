@@ -1,0 +1,4 @@
+---
+# Main deployment playbook - runs core setup tasks
+- import_playbook: docker-setup.yml
+- import_playbook: vpn-setup.yml
