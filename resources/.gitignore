@@ -4,3 +4,6 @@
 *.crt
 *.csr
 *.ovpn
+
+# Other sensitive notes
+infra.yaml

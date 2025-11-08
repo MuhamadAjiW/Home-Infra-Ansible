@@ -235,3 +235,5 @@ group_vars/*/vault.yml
 .vscode/
 *.swp
 *.swo
+
+*.ignore
